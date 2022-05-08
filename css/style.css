@@ -1,118 +1,132 @@
-/*-------------------------------Body-------------------------------*/
-html {
-	font-family: Arial, Helvetica, sans-serif;
+/*------------------------------- All elements ------------------------------*/
+*, *::before, *::after {
+    box-sizing: border-box; 
 }
+/*------------------------------- root, body --------------------------------*/
+:root {
+    font-size: 20px;
+    line-height: 1.5;
+}
+html, .wrapper, .sidebar {
+	height: 100%;
+} 
 body {
 	background-color: #AA3F39;
-	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fac7c4;
+	width: auto;
+	min-height: 100%;
 }
-img {
-	border: 0;
+/*---------------------------------- Flexbox Main Page ---------------------------------*/
+.wrapper {
+	display: flex; /**Flexbox*/
+	flex-direction:column;
+	flex-wrap: nowrap;
+	justify-content:space-between;
+	align-items: stretch;
+	align-content: center;
 }
-#background {
-	display: block;
-	height: 1440px;
-	width: 50%;
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-/*-------------------------------Main design-------------------------------*/
-#page {
-	width: 1000px;
-	margin: 0 auto;
+/*------------------------------- Attributes: body>page --------------------------*/
+.wrapper, footer {
 	position: relative;
+	padding-right: 0; 
+	padding-left: 0;
+	width: 75%;
+	margin: 0 auto 0 auto;
 }
-/** Links sidebar left**/
-#navigation li {
-	font-size: 19px;
-	line-height: 40px;
+[title=main_logo]{ /*responsive logo*/
+	width: min(80vw, 1100px);
 }
-#navigation li a {
+
+/*------------------------------- Sidebar --------------------------*/
+nav.sidebar {
+	display: flex; /**Flexbox*/
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width:100%;
+	max-width: 30%;
+	z-index: 100;
+}
+nav.sidebar ul { /**sidebar block*/
+	margin: 0;   /**no visible margin**/
+	padding: 0; /**no visible padding**/
+	float: left; /**when scrolling - visible border**/
+	list-style-type: none; /**no list style for the links**/
+	transform: translate(-135px); /**move on the X-axis**/
+	text-align: left; /**text placed on the left side**/
+	background-color: #7E2320; 
+	opacity: 0.7; /**change opacity color - not intense**/
+	overflow: visible;
+}
+#navigation li a { /**sidebar links*/
+	font-size: 1rem; /**=20px as in :root**/
+	line-height: 2rem;/**more line height**/
 	display: block;
-	width: 260px;
-	text-transform: uppercase;
-}
-#sidebar {
-	float: left;
-	height: 100%;
-	width: 270px;
-	padding-left: 5px;
-}
-#sidebar ul {
-	list-style-type: none;
-	margin: 0 0 60px;
-	padding: 0px;	
-	transform: translate(-135px);
-	text-align: left;
-	background-color: #7E2320;
-	opacity: 0.7;
-	border-radius: 5px;
-}
-#sidebar a {
-	color: #ffffff;
-	text-decoration: none;
+	text-transform: uppercase; /**links have upercase letters**/
+	color: #ffffff; /**links color**/
+	text-decoration: none; /**no text decoration**/
 	padding: 5px;
 }
-.selected{
+
+/*-------------------------------Sidebar hover-------------------------*/
+.selected { /**box shadow on the links boxes**/
 	box-shadow: inset 0 1px 1px 0 #550400;
-	border-radius: 5px;
-	color: #550400;
-	transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
+	transition: color .4s ease-in-out, box-shadow .4s ease-in-out; /**color tranisition for the hover effect**/
 }
-.selected:hover {
-	box-shadow: inset 270px 0 0 0 #550400;
+.selected:hover {  /**onclick hover effect**/
+	box-shadow: inset 315px 0 0 0 #550400;
+}
+.selected:hover,.selected,nav.sidebar ul { /** border-radius links + hover **/
 	border-radius: 5px;
 }
-/** Logo **/
-#logo {
+/*----------------------------------- Responsive Sidebar--------------------------------------*/
+@media screen and (max-width: 1024px) {
+	nav.sidebar {
+		padding-left: 10%;
+	}
+}
+
+/*-------------------------------Social Media icons-------------------------*/
+
+
+/*-------------------------------Footer-------------------------------------*/
+footer{
+	background-color: hsl(2, 55%, 41%);
+	color: 	hsl(3, 84%, 77%);
+	width: 100%;
+	height: 2.5em;
+	max-width:100%; 
+	margin-top: 3%;
+	text-align: center;
+	font-weight: lighter;
+}
+
+/*-------------------------------Main page EN-------------------------------*/
+/** Contents main block 
+.content_wrapper {
+	display: block;
+	margin-left: 0;
+	padding: 0;
+	min-height: 100%;
+	margin-right: 2em; 
+	padding-left: 2em;
+	width: 690px;
+	margin: 0px 0px 0 180px;
+	transform: translateY(-1260px);
+}**/
+
+
+/**--------------------------- WORKSHEETS ---------------------------**/
+#logo { /** Logo **/
 	color: #fac7c4;
 	display: block;
-	position: center;
 	font-size: 14px;
 	width: 550px;
 	padding: 159px 25px 0;
 	text-align: center;
 }
-
-/*-------------------------------Social Media icons-------------------------*/
-
-/*-------------------------------Footer-------------------------------------*/
-
-
-/*-------------------------------Main page EN-------------------------------*/
-/** Contents main block **/
-#contents {
-	display: block;
-	min-height: 1380px;
-	width: 690px;
-	margin: 0px 0px 0 180px;
-	transform: translateY(-1260px);
-}
-/** Information block with text **/
-#info_box {
-	display: inline-block;
-	background-color: #fac7c4;
-	text-align: center;
-	width: 750px;
-	height: 70px;
-	border-radius: 10px;
-	margin: 0 inherit;
-}
-h3{
-	font-size: 24px;
-	color: #550400;
-	text-align: center;
-	padding-left: 10px;
-	padding-top: -25px;
-}
-#contents div {
-	width: 810px;
-	margin: 0 auto;
-	padding: 0 0 30px;
-}
-
-/** Worksheet samples **/
 #contents ul.images { 
 	display: inline-block;
 	list-style-type: none;
@@ -130,14 +144,14 @@ h3{
 	padding: 7px 7px 17px;
 }
 
-/*-------------------------------Worksheets-------------------------*/
+/**---------------------------- Worksheets ----------------------------**/
 /** Information text + topic title**/
 #info_block {
 	display: inline-block;
 	text-align: center;
 	width: 750px;
 	height: 70px;
-	margin: 0 inherit;
+	margin: 0;
 }
 h2.info_text { /**information text**/
 	font-size: 25px;
@@ -158,7 +172,6 @@ h1.topic { /**topic title**/
 	justify-content: center;
 	flex-wrap: wrap;
 }
-
 .worksheet_image {
 	transform: translate(105px,80px);
 }
