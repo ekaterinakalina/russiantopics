@@ -1,4 +1,4 @@
-/*------------------------------- All elements ------------------------------*/
+/*----------------------------------- All elements ---------------------------------*/
 *, *::before, *::after {
     box-sizing: border-box; 
 }
@@ -44,26 +44,26 @@ footer {grid-area: footer;}
 	max-width: 75%;  							/** creates space between the left edge and the sidebar **/
 	margin: 0 auto;
 }
-
-[title=main_logo]{ /**responsive logo**/
-	width: min(80vw, 1024px);					/** prodviing the maximum property: 1024 px**/
+[title=main_logo]{ 								/**responsive logo**/
+	width: max(80vw, 1024px);					/** UMSCHREIBEN logo remains depends on viewport**/
 }
-
-/*------------------------------- Sidebar --------------------------*/
+/*-------------------------------------- Sidebar ---------------------------------*/
 nav {
 	display: flex; /**Nav Flexbox*/
-	flex-flow: column wrap;
+	flex-flow: column wrap;                     /** flex-direction | wrap **/
 	justify-content: center;
 	align-items: center;
-	/**width:100%;**/
-	max-width: 100%;
-	z-index: 100;
+	width: 12em;
+	height: 48em;                               /** sidebar doesn't fal back while zooming **/
+	max-width: 100%;                            /** fitting the edges **/
+	max-height: 100%;							/** fitting the edges **/
+	z-index: 100;     							/** **/
 }
 nav ul { 										/** sidebar block **/
 	margin: 0;   								/**no visible margin **/
 	padding: 0; 								/** no visible padding **/
 	list-style-type: none;						/** no list style for the links **/
-	transform: translate(-135px);				/**move on the X-axis**/
+	transform: translate(-5em);				    /**move on the X-axis**/
 	text-align: left;							/**text placed on the left side**/
 	background-color: var(--red-sidebar); 
 	opacity: 0.7;								/**change opacity color - not intense**/
@@ -77,8 +77,7 @@ nav li a { 										/**sidebar links**/
 	text-decoration: none;						/**no text decoration**/
 	padding: 5px;
 }
-
-/*-------------------------------Sidebar hover-------------------------*/
+/*--------------------------------- Sidebar hover ---------------------------*/
 .selected { 														/**box shadow on the links boxes**/
 	box-shadow: inset 0 1px 1px 0 var(--dark-red-hover);
 	transition: color .4s ease-in-out, box-shadow .4s ease-in-out;	/**color tranisition for the hover effect**/
@@ -93,13 +92,45 @@ nav a:hover {
 .selected:hover,.selected,nav ul { 									/** border-radius links + hover **/
 	border-radius: 5px;
 }
-/*----------------------------------- Responsive Sidebar--------------------*/
+/*----------------------------------- Responsive Sidebar --------------------*/
 																	/**tablet/mobile AB 768px**/
+													
+/*---------------------------------- Hero Image -----------------------------*/
+main {
+	width: 40em;    												/** fits for Laptops 1024px well **/
+	height: auto;   /**?**/
+	max-width: 100%;
+	max-height: 100%;
+	margin-left: -6em;
+}
+.hero_image {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-content: center;
+	text-align: right;
+	height: 100vh;
+    /**background-color: bisque;**/
+	background-image: url("https://res.cloudinary.com/dskvgobc1/image/upload/v1652984136/russiantopics/background_vpaaf5.png");
+	background-repeat: no-repeat;
+	background-size:contain;
+	color:var(--white-links);
+} 
+.hero_image h1 {
+	font-size: 2rem;
+	margin-top: 1em;
+}
+/*------------------------------- Main page EN------------------------------*/
+.content_wrapper {
+	display: flex;
+	width: 45em;
+	height: 30em;        
+	max-width: 100%;
+	max-height: 100%;
 
-/*-------------------------------Social Media icons-------------------------*/
-
-
-/*-------------------------------Footer-------------------------------------*/
+	background-color:blueviolet;
+}
+/*------------------------------- Footer -------------------------------------*/
 footer{
 	position:relative;
 	width:100%;
@@ -111,21 +142,7 @@ footer{
 	color: var(--light-red-text);
 	font-weight: lighter;
 }
-
-/*-------------------------------Main page EN-------------------------------*/
-/** Contents main block 
-.content_wrapper {
-	display: block;
-	margin-left: 0;
-	padding: 0;
-	min-height: 100%;
-	margin-right: 2em; 
-	padding-left: 2em;
-	width: 690px;
-	margin: 0px 0px 0 180px;
-	transform: translateY(-1260px);
-}**/
-
+/*------------------------------- Social Media icons -------------------------*/
 
 /**--------------------------- WORKSHEETS ---------------------------**/
 #logo { /** Logo **/
