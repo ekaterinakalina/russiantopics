@@ -111,23 +111,8 @@ footer{
 }
 /*-------------------------------- Social Media icons -----------------------*/
 
-
 /*----------------------------------  PAGES  --------------------------------*/
-
-
 /*---------------------------------- MAIN PAGE ------------------------------*/
-.content_wrapper {       						 /** content wrapper: map + worksheets **/
-	display: flex;
-	justify-content: center;
-	width: 45em;
-	height: 30em;        
-	max-width: 100%;
-	max-height: 100%;
-}
-.content_wrapper h2 {     						 /** h2: more space between the letters **/
-	letter-spacing: 0.1em;
-}
-/*---------------------------------- Hero Image -----------------------------*/
 main {
 	width: 40em;    							 /** fits for Laptops 1024px well **/
 	height: auto;  
@@ -135,6 +120,16 @@ main {
 	max-height: 100%;
 	margin-left: -6em;    						 /** space between the sidebar **/
 }
+.content_wrapper {       						 /** content wrapper: map + worksheets **/
+	display: flex;
+	justify-content: center;
+	flex-flow: row wrap;
+	width: 45em;
+	height: 50em;        
+	max-width: 100%;
+	max-height: 100%;
+}
+/*---------------------------------- Hero Image -----------------------------*/
 .hero_image {
 	display: flex;      					   /** hero image: map **/
 	flex-flow: row nowrap;               		 /** hero image: nowrap **/
@@ -147,12 +142,17 @@ main {
 	background-size:contain;   					 /** map fits the container **/
 	color:var(--light-red-text);
 } 
+/*---------------------------------- Hero Text -----------------------------*/
 .hero_text {    								 /** text on the map **/
 	position: absolute;
 	transform: translate(-9.5em,12em);           /** position of the text container **/
 }
 .hero_text h1 {
 	font-size: 1.8em;
+}
+.hero_image h2 { 							      /** h2: more space between the letters **/
+	letter-spacing: 0.1em;	
+	transform: translate(-0.5em,14em);
 }
 .hero_text p {
 	font-size: 0.9em;
